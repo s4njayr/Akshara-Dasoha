@@ -1,6 +1,18 @@
-# Akshara Dasoha Ledger
+<p align="center">
+  <img src="docs/branding/logo.png" alt="Akshara Dasoha Ledger" width="128" />
+</p>
 
-Offline Android app for Karnataka mid-day meal ledgers. It imports `Ledger.xlsx`, organizes books by class, lets you add or remove columns and formulas, prints each month as a landscape PDF, and downloads an editable Excel workbook with native spreadsheet formulas.
+<h1 align="center">Akshara Dasoha Ledger</h1>
+
+<p align="center">
+  Offline Android app for Karnataka mid-day meal ledgers
+</p>
+
+<p align="center">
+  <a href="https://github.com/s4njayr/Akshara-Dasoha/releases/latest"><img src="https://img.shields.io/github/v/release/s4njayr/Akshara-Dasoha?label=Download%20APK" alt="Download APK" /></a>
+</p>
+
+It imports `Ledger.xlsx`, organizes books by class, lets you add or remove columns and formulas, prints each month as a landscape PDF, and downloads an editable Excel workbook with native spreadsheet formulas.
 
 **GitHub:** [https://github.com/s4njayr/Akshara-Dasoha](https://github.com/s4njayr/Akshara-Dasoha)  
 **Download APK:** [Latest release](https://github.com/s4njayr/Akshara-Dasoha/releases/latest)  
