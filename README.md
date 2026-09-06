@@ -2,7 +2,8 @@
 
 Offline Android app for Karnataka mid-day meal ledgers. It imports `Ledger.xlsx`, organizes books by class, lets you add or remove columns and formulas, prints each month as a landscape PDF, and downloads an editable Excel workbook with native spreadsheet formulas.
 
-**GitHub:** [https://github.com/s4njayr/Akshara-Dasoha](https://github.com/s4njayr/Akshara-Dasoha)
+**GitHub:** [https://github.com/s4njayr/Akshara-Dasoha](https://github.com/s4njayr/Akshara-Dasoha)  
+**Contact:** [s4njay.r@gmail.com](mailto:s4njay.r@gmail.com)
 
 ## Clone
 
