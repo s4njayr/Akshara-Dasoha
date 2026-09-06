@@ -3,6 +3,7 @@
 Offline Android app for Karnataka mid-day meal ledgers. It imports `Ledger.xlsx`, organizes books by class, lets you add or remove columns and formulas, prints each month as a landscape PDF, and downloads an editable Excel workbook with native spreadsheet formulas.
 
 **GitHub:** [https://github.com/s4njayr/Akshara-Dasoha](https://github.com/s4njayr/Akshara-Dasoha)  
+**Download APK:** [Latest release](https://github.com/s4njayr/Akshara-Dasoha/releases/latest)  
 **Contact:** [s4njay.r@gmail.com](mailto:s4njay.r@gmail.com)
 
 ## Clone
@@ -100,11 +101,14 @@ gradle wrapper --gradle-version 8.9
 
 ## Install on a phone
 
-Use a **signed** APK. Android will not install `app-release-unsigned.apk`.
+Download **Akshara-Dasoha-1.0.0.apk** from the [latest GitHub release](https://github.com/s4njayr/Akshara-Dasoha/releases/latest).
 
-1. Build from Android Studio (**Build > Generate Signed App Bundle / APK**) or install the debug build onto a device with USB debugging.
-2. On the phone, allow install from unknown sources if you are sideloading.
-3. If an older build is already installed and signing does not match, uninstall it first.
+1. Copy the APK to the phone (Files, Drive, WhatsApp, or USB).
+2. Open the file. Allow **Install unknown apps** if Android asks.
+3. Tap Install.
+4. If an older build is already installed and signing does not match, uninstall **Akshara Dasoha Ledger** first, then install this file.
+
+Android will not install an unsigned APK. To build your own signed copy in Android Studio, use **Build > Generate Signed App Bundle / APK**.
 
 ## Refresh seed data
 
