@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.AksharaDasoha" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#1B5E20</item>
+        <item name="android:navigationBarColor">#1B5E20</item>
+        <item name="android:windowBackground">#F7F4EC</item>
+    </style>
+</resources>

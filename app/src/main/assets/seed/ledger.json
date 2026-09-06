@@ -1,0 +1,5563 @@
+{
+  "version": 1,
+  "school": {
+    "name": "Akshara Dasoha",
+    "program": "Mid-Day Meal Ledger"
+  },
+  "grades": [
+    {
+      "id": "grade_8",
+      "name": "8th",
+      "sortOrder": 0
+    },
+    {
+      "id": "grade_9",
+      "name": "9th",
+      "sortOrder": 1
+    },
+    {
+      "id": "grade_10",
+      "name": "10th",
+      "sortOrder": 2
+    }
+  ],
+  "templates": [
+    {
+      "id": "rice_8",
+      "name": "8th Rice Bhagya",
+      "description": "Daily rice, dal, oil, and wheat for Class 8",
+      "sheetName": "8th Rice Bagya",
+      "gradeIds": [
+        "grade_8"
+      ],
+      "rates": [
+        {
+          "key": "rice_rate",
+          "label": "Rice per child",
+          "value": 150.0,
+          "unit": "g",
+          "id": "rice_8_rice_rate",
+          "sortOrder": 0
+        },
+        {
+          "key": "dal_rate",
+          "label": "Dal per child",
+          "value": 30.0,
+          "unit": "g",
+          "id": "rice_8_dal_rate",
+          "sortOrder": 1
+        },
+        {
+          "key": "oil_rate",
+          "label": "Oil per child",
+          "value": 6.5,
+          "unit": "g",
+          "id": "rice_8_oil_rate",
+          "sortOrder": 2
+        },
+        {
+          "key": "wheat_rate",
+          "label": "Wheat per child",
+          "value": 150.0,
+          "unit": "g",
+          "id": "rice_8_wheat_rate",
+          "sortOrder": 3
+        }
+      ],
+      "columns": [
+        {
+          "key": "date",
+          "label": "Date",
+          "groupLabel": null,
+          "valueType": "DATE",
+          "unit": null,
+          "role": "DATE",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_8_date",
+          "sortOrder": 0,
+          "visible": true
+        },
+        {
+          "key": "week",
+          "label": "Week",
+          "groupLabel": null,
+          "valueType": "WEEKDAY",
+          "unit": null,
+          "role": "COMPUTED",
+          "formula": "WEEKDAY(date)",
+          "warnNegative": false,
+          "id": "rice_8_week",
+          "sortOrder": 1,
+          "visible": true
+        },
+        {
+          "key": "count",
+          "label": "Count",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_8_count",
+          "sortOrder": 2,
+          "visible": true
+        },
+        {
+          "key": "rice_opening",
+          "label": "Opening",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(rice_balance))",
+          "warnNegative": false,
+          "id": "rice_8_rice_opening",
+          "sortOrder": 3,
+          "visible": true
+        },
+        {
+          "key": "rice_supply",
+          "label": "Supply",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_8_rice_supply",
+          "sortOrder": 4,
+          "visible": true
+        },
+        {
+          "key": "rice_total",
+          "label": "Total",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(rice_opening, rice_supply)",
+          "warnNegative": false,
+          "id": "rice_8_rice_total",
+          "sortOrder": 5,
+          "visible": true
+        },
+        {
+          "key": "rice_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * rice_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_8_rice_expenditure",
+          "sortOrder": 6,
+          "visible": true
+        },
+        {
+          "key": "rice_balance",
+          "label": "Balance",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "rice_total - rice_expenditure",
+          "warnNegative": true,
+          "id": "rice_8_rice_balance",
+          "sortOrder": 7,
+          "visible": true
+        },
+        {
+          "key": "dal_opening",
+          "label": "Opening",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(dal_balance))",
+          "warnNegative": false,
+          "id": "rice_8_dal_opening",
+          "sortOrder": 8,
+          "visible": true
+        },
+        {
+          "key": "dal_supply",
+          "label": "Supply",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_8_dal_supply",
+          "sortOrder": 9,
+          "visible": true
+        },
+        {
+          "key": "dal_total",
+          "label": "Total",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(dal_opening, dal_supply)",
+          "warnNegative": false,
+          "id": "rice_8_dal_total",
+          "sortOrder": 10,
+          "visible": true
+        },
+        {
+          "key": "dal_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * dal_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_8_dal_expenditure",
+          "sortOrder": 11,
+          "visible": true
+        },
+        {
+          "key": "dal_balance",
+          "label": "Balance",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "dal_total - dal_expenditure",
+          "warnNegative": true,
+          "id": "rice_8_dal_balance",
+          "sortOrder": 12,
+          "visible": true
+        },
+        {
+          "key": "oil_opening",
+          "label": "Opening",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(oil_balance))",
+          "warnNegative": false,
+          "id": "rice_8_oil_opening",
+          "sortOrder": 13,
+          "visible": true
+        },
+        {
+          "key": "oil_supply",
+          "label": "Supply",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_8_oil_supply",
+          "sortOrder": 14,
+          "visible": true
+        },
+        {
+          "key": "oil_total",
+          "label": "Total",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(oil_opening, oil_supply)",
+          "warnNegative": false,
+          "id": "rice_8_oil_total",
+          "sortOrder": 15,
+          "visible": true
+        },
+        {
+          "key": "oil_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * oil_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_8_oil_expenditure",
+          "sortOrder": 16,
+          "visible": true
+        },
+        {
+          "key": "oil_balance",
+          "label": "Balance",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "oil_total - oil_expenditure",
+          "warnNegative": true,
+          "id": "rice_8_oil_balance",
+          "sortOrder": 17,
+          "visible": true
+        },
+        {
+          "key": "wheat_opening",
+          "label": "Opening",
+          "groupLabel": "Wheat",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(wheat_balance))",
+          "warnNegative": false,
+          "id": "rice_8_wheat_opening",
+          "sortOrder": 18,
+          "visible": true
+        },
+        {
+          "key": "wheat_supply",
+          "label": "Supply",
+          "groupLabel": "Wheat",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_8_wheat_supply",
+          "sortOrder": 19,
+          "visible": true
+        },
+        {
+          "key": "wheat_total",
+          "label": "Total",
+          "groupLabel": "Wheat",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(wheat_opening, wheat_supply)",
+          "warnNegative": false,
+          "id": "rice_8_wheat_total",
+          "sortOrder": 20,
+          "visible": true
+        },
+        {
+          "key": "wheat_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Wheat",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * wheat_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_8_wheat_expenditure",
+          "sortOrder": 21,
+          "visible": true
+        },
+        {
+          "key": "wheat_balance",
+          "label": "Balance",
+          "groupLabel": "Wheat",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "wheat_total - wheat_expenditure",
+          "warnNegative": true,
+          "id": "rice_8_wheat_balance",
+          "sortOrder": 22,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "rice_9_10",
+      "name": "9th & 10th Rice Bhagya",
+      "description": "Combined rice, dal, and oil for Classes 9 and 10",
+      "sheetName": "9th & 10 Rice Bagya",
+      "gradeIds": [
+        "grade_9",
+        "grade_10"
+      ],
+      "rates": [
+        {
+          "key": "rice_rate",
+          "label": "Rice per child",
+          "value": 150.0,
+          "unit": "g",
+          "id": "rice_9_10_rice_rate",
+          "sortOrder": 0
+        },
+        {
+          "key": "dal_rate",
+          "label": "Dal per child",
+          "value": 30.0,
+          "unit": "g",
+          "id": "rice_9_10_dal_rate",
+          "sortOrder": 1
+        },
+        {
+          "key": "oil_rate",
+          "label": "Oil per child",
+          "value": 6.5,
+          "unit": "g",
+          "id": "rice_9_10_oil_rate",
+          "sortOrder": 2
+        }
+      ],
+      "columns": [
+        {
+          "key": "date",
+          "label": "Date",
+          "groupLabel": null,
+          "valueType": "DATE",
+          "unit": null,
+          "role": "DATE",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_9_10_date",
+          "sortOrder": 0,
+          "visible": true
+        },
+        {
+          "key": "week",
+          "label": "Week",
+          "groupLabel": null,
+          "valueType": "WEEKDAY",
+          "unit": null,
+          "role": "COMPUTED",
+          "formula": "WEEKDAY(date)",
+          "warnNegative": false,
+          "id": "rice_9_10_week",
+          "sortOrder": 1,
+          "visible": true
+        },
+        {
+          "key": "count",
+          "label": "Count",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_9_10_count",
+          "sortOrder": 2,
+          "visible": true
+        },
+        {
+          "key": "rice_opening",
+          "label": "Opening",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(rice_balance))",
+          "warnNegative": false,
+          "id": "rice_9_10_rice_opening",
+          "sortOrder": 3,
+          "visible": true
+        },
+        {
+          "key": "rice_supply",
+          "label": "Supply",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_9_10_rice_supply",
+          "sortOrder": 4,
+          "visible": true
+        },
+        {
+          "key": "rice_total",
+          "label": "Total",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(rice_opening, rice_supply)",
+          "warnNegative": false,
+          "id": "rice_9_10_rice_total",
+          "sortOrder": 5,
+          "visible": true
+        },
+        {
+          "key": "rice_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * rice_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_9_10_rice_expenditure",
+          "sortOrder": 6,
+          "visible": true
+        },
+        {
+          "key": "rice_balance",
+          "label": "Balance",
+          "groupLabel": "Rice",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "rice_total - rice_expenditure",
+          "warnNegative": true,
+          "id": "rice_9_10_rice_balance",
+          "sortOrder": 7,
+          "visible": true
+        },
+        {
+          "key": "dal_opening",
+          "label": "Opening",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(dal_balance))",
+          "warnNegative": false,
+          "id": "rice_9_10_dal_opening",
+          "sortOrder": 8,
+          "visible": true
+        },
+        {
+          "key": "dal_supply",
+          "label": "Supply",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_9_10_dal_supply",
+          "sortOrder": 9,
+          "visible": true
+        },
+        {
+          "key": "dal_total",
+          "label": "Total",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(dal_opening, dal_supply)",
+          "warnNegative": false,
+          "id": "rice_9_10_dal_total",
+          "sortOrder": 10,
+          "visible": true
+        },
+        {
+          "key": "dal_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * dal_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_9_10_dal_expenditure",
+          "sortOrder": 11,
+          "visible": true
+        },
+        {
+          "key": "dal_balance",
+          "label": "Balance",
+          "groupLabel": "Dal",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "dal_total - dal_expenditure",
+          "warnNegative": true,
+          "id": "rice_9_10_dal_balance",
+          "sortOrder": 12,
+          "visible": true
+        },
+        {
+          "key": "oil_opening",
+          "label": "Opening",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(oil_balance))",
+          "warnNegative": false,
+          "id": "rice_9_10_oil_opening",
+          "sortOrder": 13,
+          "visible": true
+        },
+        {
+          "key": "oil_supply",
+          "label": "Supply",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "rice_9_10_oil_supply",
+          "sortOrder": 14,
+          "visible": true
+        },
+        {
+          "key": "oil_total",
+          "label": "Total",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(oil_opening, oil_supply)",
+          "warnNegative": false,
+          "id": "rice_9_10_oil_total",
+          "sortOrder": 15,
+          "visible": true
+        },
+        {
+          "key": "oil_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * oil_rate / 1000",
+          "warnNegative": false,
+          "id": "rice_9_10_oil_expenditure",
+          "sortOrder": 16,
+          "visible": true
+        },
+        {
+          "key": "oil_balance",
+          "label": "Balance",
+          "groupLabel": "Oil",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "oil_total - oil_expenditure",
+          "warnNegative": true,
+          "id": "rice_9_10_oil_balance",
+          "sortOrder": 17,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "milk_biscuit",
+      "name": "Milk & Biscuit",
+      "description": "Milk and malt powder for all classes",
+      "sheetName": "Milk & Biscut",
+      "gradeIds": [
+        "grade_8",
+        "grade_9",
+        "grade_10"
+      ],
+      "rates": [
+        {
+          "key": "milk_rate",
+          "label": "Milk per child",
+          "value": 18.0,
+          "unit": "g",
+          "id": "milk_biscuit_milk_rate",
+          "sortOrder": 0
+        },
+        {
+          "key": "malt_rate",
+          "label": "Malt powder per child",
+          "value": 5.0,
+          "unit": "g",
+          "id": "milk_biscuit_malt_rate",
+          "sortOrder": 1
+        }
+      ],
+      "columns": [
+        {
+          "key": "date",
+          "label": "Date",
+          "groupLabel": null,
+          "valueType": "DATE",
+          "unit": null,
+          "role": "DATE",
+          "formula": null,
+          "warnNegative": false,
+          "id": "milk_biscuit_date",
+          "sortOrder": 0,
+          "visible": true
+        },
+        {
+          "key": "week",
+          "label": "Week",
+          "groupLabel": null,
+          "valueType": "WEEKDAY",
+          "unit": null,
+          "role": "COMPUTED",
+          "formula": "WEEKDAY(date)",
+          "warnNegative": false,
+          "id": "milk_biscuit_week",
+          "sortOrder": 1,
+          "visible": true
+        },
+        {
+          "key": "count",
+          "label": "Count",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "milk_biscuit_count",
+          "sortOrder": 2,
+          "visible": true
+        },
+        {
+          "key": "milk_opening",
+          "label": "Opening",
+          "groupLabel": "Milk",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(milk_balance))",
+          "warnNegative": false,
+          "id": "milk_biscuit_milk_opening",
+          "sortOrder": 3,
+          "visible": true
+        },
+        {
+          "key": "milk_supply",
+          "label": "Supply",
+          "groupLabel": "Milk",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "milk_biscuit_milk_supply",
+          "sortOrder": 4,
+          "visible": true
+        },
+        {
+          "key": "milk_total",
+          "label": "Total",
+          "groupLabel": "Milk",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(milk_opening, milk_supply)",
+          "warnNegative": false,
+          "id": "milk_biscuit_milk_total",
+          "sortOrder": 5,
+          "visible": true
+        },
+        {
+          "key": "milk_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Milk",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * milk_rate / 1000",
+          "warnNegative": false,
+          "id": "milk_biscuit_milk_expenditure",
+          "sortOrder": 6,
+          "visible": true
+        },
+        {
+          "key": "milk_balance",
+          "label": "Balance",
+          "groupLabel": "Milk",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "milk_total - milk_expenditure",
+          "warnNegative": true,
+          "id": "milk_biscuit_milk_balance",
+          "sortOrder": 7,
+          "visible": true
+        },
+        {
+          "key": "malt_opening",
+          "label": "Opening",
+          "groupLabel": "Malt Powder",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(malt_balance))",
+          "warnNegative": false,
+          "id": "milk_biscuit_malt_opening",
+          "sortOrder": 8,
+          "visible": true
+        },
+        {
+          "key": "malt_supply",
+          "label": "Supply",
+          "groupLabel": "Malt Powder",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "milk_biscuit_malt_supply",
+          "sortOrder": 9,
+          "visible": true
+        },
+        {
+          "key": "malt_total",
+          "label": "Total",
+          "groupLabel": "Malt Powder",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "SUM(malt_opening, malt_supply)",
+          "warnNegative": false,
+          "id": "milk_biscuit_malt_total",
+          "sortOrder": 10,
+          "visible": true
+        },
+        {
+          "key": "malt_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Malt Powder",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "count * malt_rate / 1000",
+          "warnNegative": false,
+          "id": "milk_biscuit_malt_expenditure",
+          "sortOrder": 11,
+          "visible": true
+        },
+        {
+          "key": "malt_balance",
+          "label": "Balance",
+          "groupLabel": "Malt Powder",
+          "valueType": "NUMBER",
+          "unit": "kg",
+          "role": "COMPUTED",
+          "formula": "malt_total - malt_expenditure",
+          "warnNegative": true,
+          "id": "milk_biscuit_malt_balance",
+          "sortOrder": 12,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "contingency",
+      "name": "Contingency",
+      "description": "Grade contingency and sugar contingency in rupees",
+      "sheetName": "Contengency",
+      "gradeIds": [
+        "grade_8",
+        "grade_9",
+        "grade_10"
+      ],
+      "rates": [
+        {
+          "key": "contingency_rate",
+          "label": "Contingency per child",
+          "value": 3.55,
+          "unit": "INR",
+          "id": "contingency_contingency_rate",
+          "sortOrder": 0
+        },
+        {
+          "key": "sugar_rate",
+          "label": "Sugar contingency per child",
+          "value": 0.44,
+          "unit": "INR",
+          "id": "contingency_sugar_rate",
+          "sortOrder": 1
+        }
+      ],
+      "columns": [
+        {
+          "key": "date",
+          "label": "Date",
+          "groupLabel": null,
+          "valueType": "DATE",
+          "unit": null,
+          "role": "DATE",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_date",
+          "sortOrder": 0,
+          "visible": true
+        },
+        {
+          "key": "week",
+          "label": "Week",
+          "groupLabel": null,
+          "valueType": "WEEKDAY",
+          "unit": null,
+          "role": "COMPUTED",
+          "formula": "WEEKDAY(date)",
+          "warnNegative": false,
+          "id": "contingency_week",
+          "sortOrder": 1,
+          "visible": true
+        },
+        {
+          "key": "count_8",
+          "label": "8th Head Count",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_count_8",
+          "sortOrder": 2,
+          "visible": true
+        },
+        {
+          "key": "cont_8_opening",
+          "label": "Opening",
+          "groupLabel": "8th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(cont_8_balance))",
+          "warnNegative": false,
+          "id": "contingency_cont_8_opening",
+          "sortOrder": 3,
+          "visible": true
+        },
+        {
+          "key": "cont_8_supply",
+          "label": "Supply",
+          "groupLabel": "8th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_cont_8_supply",
+          "sortOrder": 4,
+          "visible": true
+        },
+        {
+          "key": "cont_8_total",
+          "label": "Total",
+          "groupLabel": "8th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "SUM(cont_8_opening, cont_8_supply)",
+          "warnNegative": false,
+          "id": "contingency_cont_8_total",
+          "sortOrder": 5,
+          "visible": true
+        },
+        {
+          "key": "cont_8_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "8th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "count_8 * contingency_rate",
+          "warnNegative": false,
+          "id": "contingency_cont_8_expenditure",
+          "sortOrder": 6,
+          "visible": true
+        },
+        {
+          "key": "cont_8_balance",
+          "label": "Balance",
+          "groupLabel": "8th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "cont_8_total - cont_8_expenditure",
+          "warnNegative": true,
+          "id": "contingency_cont_8_balance",
+          "sortOrder": 7,
+          "visible": true
+        },
+        {
+          "key": "count_9",
+          "label": "9th Head Count",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_count_9",
+          "sortOrder": 8,
+          "visible": true
+        },
+        {
+          "key": "count_10",
+          "label": "10th Head Count",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_count_10",
+          "sortOrder": 9,
+          "visible": true
+        },
+        {
+          "key": "count_9_10",
+          "label": "9th + 10th Total",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "COMPUTED",
+          "formula": "SUM(count_9, count_10)",
+          "warnNegative": false,
+          "id": "contingency_count_9_10",
+          "sortOrder": 10,
+          "visible": true
+        },
+        {
+          "key": "cont_9_10_opening",
+          "label": "Opening",
+          "groupLabel": "9th & 10th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(cont_9_10_balance))",
+          "warnNegative": false,
+          "id": "contingency_cont_9_10_opening",
+          "sortOrder": 11,
+          "visible": true
+        },
+        {
+          "key": "cont_9_10_supply",
+          "label": "Supply",
+          "groupLabel": "9th & 10th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_cont_9_10_supply",
+          "sortOrder": 12,
+          "visible": true
+        },
+        {
+          "key": "cont_9_10_total",
+          "label": "Total",
+          "groupLabel": "9th & 10th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "SUM(cont_9_10_opening, cont_9_10_supply)",
+          "warnNegative": false,
+          "id": "contingency_cont_9_10_total",
+          "sortOrder": 13,
+          "visible": true
+        },
+        {
+          "key": "cont_9_10_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "9th & 10th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "count_9_10 * contingency_rate",
+          "warnNegative": false,
+          "id": "contingency_cont_9_10_expenditure",
+          "sortOrder": 14,
+          "visible": true
+        },
+        {
+          "key": "cont_9_10_balance",
+          "label": "Balance",
+          "groupLabel": "9th & 10th Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "cont_9_10_total - cont_9_10_expenditure",
+          "warnNegative": true,
+          "id": "contingency_cont_9_10_balance",
+          "sortOrder": 15,
+          "visible": true
+        },
+        {
+          "key": "count_all",
+          "label": "8, 9, 10 Total",
+          "groupLabel": null,
+          "valueType": "NUMBER",
+          "unit": "children",
+          "role": "COMPUTED",
+          "formula": "SUM(count_8, count_9_10)",
+          "warnNegative": false,
+          "id": "contingency_count_all",
+          "sortOrder": 16,
+          "visible": true
+        },
+        {
+          "key": "sugar_opening",
+          "label": "Opening",
+          "groupLabel": "Sugar Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(sugar_balance))",
+          "warnNegative": false,
+          "id": "contingency_sugar_opening",
+          "sortOrder": 17,
+          "visible": true
+        },
+        {
+          "key": "sugar_supply",
+          "label": "Supply",
+          "groupLabel": "Sugar Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "contingency_sugar_supply",
+          "sortOrder": 18,
+          "visible": true
+        },
+        {
+          "key": "sugar_total",
+          "label": "Total",
+          "groupLabel": "Sugar Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "SUM(sugar_opening, sugar_supply)",
+          "warnNegative": false,
+          "id": "contingency_sugar_total",
+          "sortOrder": 19,
+          "visible": true
+        },
+        {
+          "key": "sugar_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Sugar Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "count_all * sugar_rate",
+          "warnNegative": false,
+          "id": "contingency_sugar_expenditure",
+          "sortOrder": 20,
+          "visible": true
+        },
+        {
+          "key": "sugar_balance",
+          "label": "Balance",
+          "groupLabel": "Sugar Contingency",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "sugar_total - sugar_expenditure",
+          "warnNegative": true,
+          "id": "contingency_sugar_balance",
+          "sortOrder": 21,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "egg_banana",
+      "name": "Egg, Banana & Nut Bar",
+      "description": "Daily egg and banana counts with cash contingency",
+      "sheetName": "Egg & Bannana & nutbar",
+      "gradeIds": [
+        "grade_8",
+        "grade_9",
+        "grade_10"
+      ],
+      "rates": [
+        {
+          "key": "egg_rate",
+          "label": "Egg contingency",
+          "value": 6.0,
+          "unit": "INR",
+          "id": "egg_banana_egg_rate",
+          "sortOrder": 0
+        },
+        {
+          "key": "banana_rate",
+          "label": "Banana contingency",
+          "value": 5.7,
+          "unit": "INR",
+          "id": "egg_banana_banana_rate",
+          "sortOrder": 1
+        }
+      ],
+      "columns": [
+        {
+          "key": "date",
+          "label": "Date",
+          "groupLabel": null,
+          "valueType": "DATE",
+          "unit": null,
+          "role": "DATE",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_date",
+          "sortOrder": 0,
+          "visible": true
+        },
+        {
+          "key": "week",
+          "label": "Week",
+          "groupLabel": null,
+          "valueType": "WEEKDAY",
+          "unit": null,
+          "role": "COMPUTED",
+          "formula": "WEEKDAY(date)",
+          "warnNegative": false,
+          "id": "egg_banana_week",
+          "sortOrder": 1,
+          "visible": true
+        },
+        {
+          "key": "egg_8",
+          "label": "Egg",
+          "groupLabel": "8th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_egg_8",
+          "sortOrder": 2,
+          "visible": true
+        },
+        {
+          "key": "banana_8",
+          "label": "Banana",
+          "groupLabel": "8th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_banana_8",
+          "sortOrder": 3,
+          "visible": true
+        },
+        {
+          "key": "total_8",
+          "label": "Total",
+          "groupLabel": "8th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "COMPUTED",
+          "formula": "SUM(egg_8, banana_8)",
+          "warnNegative": false,
+          "id": "egg_banana_total_8",
+          "sortOrder": 4,
+          "visible": true
+        },
+        {
+          "key": "egg_9",
+          "label": "Egg",
+          "groupLabel": "9th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_egg_9",
+          "sortOrder": 5,
+          "visible": true
+        },
+        {
+          "key": "banana_9",
+          "label": "Banana",
+          "groupLabel": "9th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_banana_9",
+          "sortOrder": 6,
+          "visible": true
+        },
+        {
+          "key": "total_9",
+          "label": "Total",
+          "groupLabel": "9th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "COMPUTED",
+          "formula": "SUM(egg_9, banana_9)",
+          "warnNegative": false,
+          "id": "egg_banana_total_9",
+          "sortOrder": 7,
+          "visible": true
+        },
+        {
+          "key": "egg_10",
+          "label": "Egg",
+          "groupLabel": "10th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_egg_10",
+          "sortOrder": 8,
+          "visible": true
+        },
+        {
+          "key": "banana_10",
+          "label": "Banana",
+          "groupLabel": "10th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_banana_10",
+          "sortOrder": 9,
+          "visible": true
+        },
+        {
+          "key": "total_10",
+          "label": "Total",
+          "groupLabel": "10th",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "COMPUTED",
+          "formula": "SUM(egg_10, banana_10)",
+          "warnNegative": false,
+          "id": "egg_banana_total_10",
+          "sortOrder": 10,
+          "visible": true
+        },
+        {
+          "key": "egg_total",
+          "label": "Egg",
+          "groupLabel": "Grand Total",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "COMPUTED",
+          "formula": "SUM(egg_8, egg_9, egg_10)",
+          "warnNegative": false,
+          "id": "egg_banana_egg_total",
+          "sortOrder": 11,
+          "visible": true
+        },
+        {
+          "key": "banana_total",
+          "label": "Banana",
+          "groupLabel": "Grand Total",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "COMPUTED",
+          "formula": "SUM(banana_8, banana_9, banana_10)",
+          "warnNegative": false,
+          "id": "egg_banana_banana_total",
+          "sortOrder": 12,
+          "visible": true
+        },
+        {
+          "key": "combo_total",
+          "label": "Total",
+          "groupLabel": "Grand Total",
+          "valueType": "NUMBER",
+          "unit": "count",
+          "role": "COMPUTED",
+          "formula": "SUM(egg_total, banana_total)",
+          "warnNegative": false,
+          "id": "egg_banana_combo_total",
+          "sortOrder": 13,
+          "visible": true
+        },
+        {
+          "key": "egg_cont",
+          "label": "Egg Contingency",
+          "groupLabel": "Cash",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "egg_total * egg_rate",
+          "warnNegative": false,
+          "id": "egg_banana_egg_cont",
+          "sortOrder": 14,
+          "visible": true
+        },
+        {
+          "key": "banana_cont",
+          "label": "Banana Contingency",
+          "groupLabel": "Cash",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "banana_total * banana_rate",
+          "warnNegative": false,
+          "id": "egg_banana_banana_cont",
+          "sortOrder": 15,
+          "visible": true
+        },
+        {
+          "key": "cash_opening",
+          "label": "Opening",
+          "groupLabel": "Egg/Banana Fund",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "OPENING",
+          "formula": "IF(ISFIRST(), INPUT(), CARRY(cash_balance))",
+          "warnNegative": false,
+          "id": "egg_banana_cash_opening",
+          "sortOrder": 16,
+          "visible": true
+        },
+        {
+          "key": "cash_supply",
+          "label": "Supply",
+          "groupLabel": "Egg/Banana Fund",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "INPUT",
+          "formula": null,
+          "warnNegative": false,
+          "id": "egg_banana_cash_supply",
+          "sortOrder": 17,
+          "visible": true
+        },
+        {
+          "key": "cash_total",
+          "label": "Total",
+          "groupLabel": "Egg/Banana Fund",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "SUM(cash_opening, cash_supply)",
+          "warnNegative": false,
+          "id": "egg_banana_cash_total",
+          "sortOrder": 18,
+          "visible": true
+        },
+        {
+          "key": "cash_expenditure",
+          "label": "Expenditure",
+          "groupLabel": "Egg/Banana Fund",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "SUM(egg_cont, banana_cont)",
+          "warnNegative": false,
+          "id": "egg_banana_cash_expenditure",
+          "sortOrder": 19,
+          "visible": true
+        },
+        {
+          "key": "cash_balance",
+          "label": "Balance",
+          "groupLabel": "Egg/Banana Fund",
+          "valueType": "NUMBER",
+          "unit": "INR",
+          "role": "COMPUTED",
+          "formula": "cash_total - cash_expenditure",
+          "warnNegative": true,
+          "id": "egg_banana_cash_balance",
+          "sortOrder": 20,
+          "visible": true
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "id": "rice_8_2025_05",
+      "templateId": "rice_8",
+      "year": 2025,
+      "month": 5,
+      "title": "8th Rice Bhagya May 2025",
+      "rows": [
+        {
+          "date": "2025-05-01",
+          "sortOrder": 1,
+          "cells": {
+            "count": 20.0,
+            "rice_supply": 0.0,
+            "rice_opening": 477.75,
+            "dal_supply": 0.0,
+            "dal_opening": 44.85,
+            "oil_supply": 0.0,
+            "oil_opening": 4.785,
+            "wheat_supply": 0.0,
+            "wheat_opening": 52.3
+          },
+          "sourceValues": {
+            "count": 20.0,
+            "rice_opening": 477.75,
+            "rice_supply": 0.0,
+            "rice_total": 477.75,
+            "rice_balance": 477.75,
+            "dal_opening": 44.85,
+            "dal_supply": 0.0,
+            "dal_total": 44.85,
+            "dal_balance": 44.85,
+            "oil_opening": 4.785,
+            "oil_supply": 0.0,
+            "oil_total": 4.785,
+            "oil_expenditure": 0.13,
+            "oil_balance": 4.655,
+            "wheat_opening": 52.3,
+            "wheat_supply": 0.0,
+            "wheat_total": 52.3,
+            "wheat_expenditure": 3.0,
+            "wheat_balance": 49.3
+          }
+        },
+        {
+          "date": "2025-05-02",
+          "sortOrder": 2,
+          "cells": {
+            "count": 0.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 0.0,
+            "rice_opening": 477.75,
+            "rice_supply": 0.0,
+            "rice_total": 477.75,
+            "rice_expenditure": 0.0,
+            "rice_balance": 477.75,
+            "dal_opening": 44.85,
+            "dal_total": 44.85,
+            "dal_expenditure": 0.0,
+            "dal_balance": 44.85,
+            "oil_opening": 4.655,
+            "oil_supply": 0.0,
+            "oil_total": 4.655,
+            "oil_expenditure": 0.0,
+            "oil_balance": 4.655,
+            "wheat_opening": 49.3,
+            "wheat_supply": 0.0,
+            "wheat_total": 49.3,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 49.3
+          }
+        },
+        {
+          "date": "2025-05-03",
+          "sortOrder": 3,
+          "cells": {
+            "count": 22.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 22.0,
+            "rice_opening": 477.75,
+            "rice_total": 477.75,
+            "rice_expenditure": 3.3,
+            "rice_balance": 474.45,
+            "dal_opening": 44.85,
+            "dal_total": 44.85,
+            "dal_expenditure": 0.66,
+            "dal_balance": 44.190000000000005,
+            "oil_opening": 4.655,
+            "oil_supply": 0.0,
+            "oil_total": 4.655,
+            "oil_expenditure": 0.143,
+            "oil_balance": 4.5120000000000005,
+            "wheat_opening": 49.3,
+            "wheat_supply": 0.0,
+            "wheat_total": 49.3,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 49.3
+          }
+        },
+        {
+          "date": "2025-05-04",
+          "sortOrder": 4,
+          "cells": {
+            "count": 23.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 23.0,
+            "rice_opening": 474.45,
+            "rice_total": 474.45,
+            "rice_expenditure": 3.45,
+            "rice_balance": 471.0,
+            "dal_opening": 44.190000000000005,
+            "dal_total": 44.190000000000005,
+            "dal_expenditure": 0.69,
+            "dal_balance": 43.50000000000001,
+            "oil_opening": 4.5120000000000005,
+            "oil_supply": 0.0,
+            "oil_total": 4.5120000000000005,
+            "oil_expenditure": 0.1495,
+            "oil_balance": 4.362500000000001,
+            "wheat_opening": 49.3,
+            "wheat_supply": 0.0,
+            "wheat_total": 49.3,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 49.3
+          }
+        },
+        {
+          "date": "2025-05-05",
+          "sortOrder": 5,
+          "cells": {
+            "count": 23.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 23.0,
+            "rice_opening": 471.0,
+            "rice_total": 471.0,
+            "rice_expenditure": 3.45,
+            "rice_balance": 467.55,
+            "dal_opening": 43.50000000000001,
+            "dal_total": 43.50000000000001,
+            "dal_expenditure": 0.69,
+            "dal_balance": 42.81000000000001,
+            "oil_opening": 4.362500000000001,
+            "oil_supply": 0.0,
+            "oil_total": 4.362500000000001,
+            "oil_expenditure": 0.1495,
+            "oil_balance": 4.213000000000001,
+            "wheat_opening": 49.3,
+            "wheat_supply": 0.0,
+            "wheat_total": 49.3,
+            "wheat_expenditure": 3.45,
+            "wheat_balance": 45.849999999999994
+          }
+        },
+        {
+          "date": "2025-05-06",
+          "sortOrder": 6,
+          "cells": {
+            "count": 23.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 23.0,
+            "rice_opening": 467.55,
+            "rice_total": 467.55,
+            "rice_expenditure": 3.45,
+            "rice_balance": 464.1,
+            "dal_opening": 42.81000000000001,
+            "dal_total": 42.81000000000001,
+            "dal_expenditure": 0.69,
+            "dal_balance": 42.12000000000001,
+            "oil_opening": 4.213000000000001,
+            "oil_supply": 0.0,
+            "oil_total": 4.213000000000001,
+            "oil_expenditure": 0.1495,
+            "oil_balance": 4.063500000000001,
+            "wheat_opening": 45.849999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 45.849999999999994,
+            "wheat_expenditure": 3.45,
+            "wheat_balance": 42.39999999999999
+          }
+        },
+        {
+          "date": "2025-05-07",
+          "sortOrder": 7,
+          "cells": {
+            "count": 22.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 22.0,
+            "rice_opening": 464.1,
+            "rice_total": 464.1,
+            "rice_expenditure": 3.3,
+            "rice_balance": 460.8,
+            "dal_opening": 42.12000000000001,
+            "dal_total": 42.12000000000001,
+            "dal_expenditure": 0.66,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 4.063500000000001,
+            "oil_supply": 0.0,
+            "oil_total": 4.063500000000001,
+            "oil_expenditure": 0.143,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 42.39999999999999,
+            "wheat_supply": 0.0,
+            "wheat_total": 42.39999999999999,
+            "wheat_expenditure": 3.3,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-08",
+          "sortOrder": 8,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-09",
+          "sortOrder": 9,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-10",
+          "sortOrder": 10,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-11",
+          "sortOrder": 11,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-12",
+          "sortOrder": 12,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-13",
+          "sortOrder": 13,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-14",
+          "sortOrder": 14,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-15",
+          "sortOrder": 15,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-16",
+          "sortOrder": 16,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-17",
+          "sortOrder": 17,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-18",
+          "sortOrder": 18,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-19",
+          "sortOrder": 19,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-20",
+          "sortOrder": 20,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-21",
+          "sortOrder": 21,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-22",
+          "sortOrder": 22,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-23",
+          "sortOrder": 23,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-24",
+          "sortOrder": 24,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-25",
+          "sortOrder": 25,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-26",
+          "sortOrder": 26,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-27",
+          "sortOrder": 27,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-28",
+          "sortOrder": 28,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-29",
+          "sortOrder": 29,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-30",
+          "sortOrder": 30,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        },
+        {
+          "date": "2025-05-31",
+          "sortOrder": 31,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0,
+            "wheat_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 460.8,
+            "rice_total": 460.8,
+            "rice_expenditure": 0.0,
+            "rice_balance": 460.8,
+            "dal_opening": 41.460000000000015,
+            "dal_total": 41.460000000000015,
+            "dal_expenditure": 0.0,
+            "dal_balance": 41.460000000000015,
+            "oil_opening": 3.9205000000000014,
+            "oil_supply": 0.0,
+            "oil_total": 3.9205000000000014,
+            "oil_expenditure": 0.0,
+            "oil_balance": 3.9205000000000014,
+            "wheat_opening": 39.099999999999994,
+            "wheat_supply": 0.0,
+            "wheat_total": 39.099999999999994,
+            "wheat_expenditure": 0.0,
+            "wheat_balance": 39.099999999999994
+          }
+        }
+      ]
+    },
+    {
+      "id": "rice_9_10_2025_03",
+      "templateId": "rice_9_10",
+      "year": 2025,
+      "month": 3,
+      "title": "9th & 10th Rice Bhagya March 2025",
+      "rows": [
+        {
+          "date": "2025-03-01",
+          "sortOrder": 1,
+          "cells": {
+            "count": 85.0,
+            "rice_supply": 0.0,
+            "rice_opening": 176.25,
+            "dal_supply": 0.0,
+            "dal_opening": 141.88,
+            "oil_supply": 0.0,
+            "oil_opening": 15.355
+          },
+          "sourceValues": {
+            "count": 85.0,
+            "rice_opening": 176.25,
+            "rice_supply": 0.0,
+            "rice_total": 176.25,
+            "rice_expenditure": 12.75,
+            "rice_balance": 163.5,
+            "dal_opening": 141.88,
+            "dal_supply": 0.0,
+            "dal_total": 141.88,
+            "dal_expenditure": 0.0,
+            "dal_balance": 141.88,
+            "oil_opening": 15.355,
+            "oil_supply": 0.0,
+            "oil_total": 15.355,
+            "oil_expenditure": 6.5025,
+            "oil_balance": 8.8525
+          }
+        },
+        {
+          "date": "2025-03-02",
+          "sortOrder": 2,
+          "cells": {
+            "count": 0.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 0.0,
+            "rice_opening": 163.5,
+            "rice_supply": 0.0,
+            "rice_total": 163.5,
+            "rice_expenditure": 0.0,
+            "rice_balance": 163.5,
+            "dal_opening": 141.88,
+            "dal_total": 141.88,
+            "dal_expenditure": 0.0,
+            "dal_balance": 141.88,
+            "oil_opening": 8.8525,
+            "oil_supply": 0.0,
+            "oil_total": 8.8525,
+            "oil_expenditure": 0.0,
+            "oil_balance": 8.8525
+          }
+        },
+        {
+          "date": "2025-03-03",
+          "sortOrder": 3,
+          "cells": {
+            "count": 89.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 89.0,
+            "rice_opening": 163.5,
+            "rice_total": 163.5,
+            "rice_expenditure": 13.35,
+            "rice_balance": 150.15,
+            "dal_opening": 141.88,
+            "dal_total": 141.88,
+            "dal_expenditure": 2.67,
+            "dal_balance": 139.21,
+            "oil_opening": 8.8525,
+            "oil_supply": 0.0,
+            "oil_total": 8.8525,
+            "oil_expenditure": 6.8085,
+            "oil_balance": 2.0439999999999987
+          }
+        },
+        {
+          "date": "2025-03-04",
+          "sortOrder": 4,
+          "cells": {
+            "count": 88.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 88.0,
+            "rice_opening": 150.15,
+            "rice_total": 150.15,
+            "rice_expenditure": 13.2,
+            "rice_balance": 136.95000000000002,
+            "dal_opening": 139.21,
+            "dal_total": 139.21,
+            "dal_expenditure": 2.64,
+            "dal_balance": 136.57000000000002,
+            "oil_opening": 2.0439999999999987,
+            "oil_supply": 0.0,
+            "oil_total": 2.0439999999999987,
+            "oil_expenditure": 6.732,
+            "oil_balance": -4.6880000000000015
+          }
+        },
+        {
+          "date": "2025-03-05",
+          "sortOrder": 5,
+          "cells": {
+            "count": 83.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 83.0,
+            "rice_opening": 136.95000000000002,
+            "rice_total": 136.95000000000002,
+            "rice_expenditure": 12.45,
+            "rice_balance": 124.50000000000001,
+            "dal_opening": 136.57000000000002,
+            "dal_total": 136.57000000000002,
+            "dal_expenditure": 2.49,
+            "dal_balance": 134.08,
+            "oil_opening": -4.6880000000000015,
+            "oil_supply": 0.0,
+            "oil_total": -4.6880000000000015,
+            "oil_expenditure": 6.3495,
+            "oil_balance": -11.037500000000001
+          }
+        },
+        {
+          "date": "2025-03-06",
+          "sortOrder": 6,
+          "cells": {
+            "count": 78.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 78.0,
+            "rice_opening": 124.50000000000001,
+            "rice_total": 124.50000000000001,
+            "rice_expenditure": 11.7,
+            "rice_balance": 112.80000000000001,
+            "dal_opening": 134.08,
+            "dal_total": 134.08,
+            "dal_expenditure": 2.34,
+            "dal_balance": 131.74,
+            "oil_opening": -11.037500000000001,
+            "oil_supply": 0.0,
+            "oil_total": -11.037500000000001,
+            "oil_expenditure": 5.967,
+            "oil_balance": -17.0045
+          }
+        },
+        {
+          "date": "2025-03-07",
+          "sortOrder": 7,
+          "cells": {
+            "count": 86.0,
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 86.0,
+            "rice_opening": 112.80000000000001,
+            "rice_total": 112.80000000000001,
+            "rice_expenditure": 12.9,
+            "rice_balance": 99.9,
+            "dal_opening": 131.74,
+            "dal_total": 131.74,
+            "dal_expenditure": 2.58,
+            "dal_balance": 129.16,
+            "oil_opening": -17.0045,
+            "oil_supply": 0.0,
+            "oil_total": -17.0045,
+            "oil_expenditure": 6.579,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-08",
+          "sortOrder": 8,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-09",
+          "sortOrder": 9,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-10",
+          "sortOrder": 10,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-11",
+          "sortOrder": 11,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-12",
+          "sortOrder": 12,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-13",
+          "sortOrder": 13,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-14",
+          "sortOrder": 14,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-15",
+          "sortOrder": 15,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-16",
+          "sortOrder": 16,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-17",
+          "sortOrder": 17,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-18",
+          "sortOrder": 18,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-19",
+          "sortOrder": 19,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "sortOrder": 20,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-21",
+          "sortOrder": 21,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-22",
+          "sortOrder": 22,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-23",
+          "sortOrder": 23,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-24",
+          "sortOrder": 24,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-25",
+          "sortOrder": 25,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-26",
+          "sortOrder": 26,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-27",
+          "sortOrder": 27,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-28",
+          "sortOrder": 28,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-29",
+          "sortOrder": 29,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-30",
+          "sortOrder": 30,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        },
+        {
+          "date": "2025-03-31",
+          "sortOrder": 31,
+          "cells": {
+            "rice_supply": 0.0,
+            "dal_supply": 0.0,
+            "oil_supply": 0.0
+          },
+          "sourceValues": {
+            "rice_opening": 99.9,
+            "rice_total": 99.9,
+            "rice_expenditure": 0.0,
+            "rice_balance": 99.9,
+            "dal_opening": 129.16,
+            "dal_total": 129.16,
+            "dal_expenditure": 0.0,
+            "dal_balance": 129.16,
+            "oil_opening": -23.5835,
+            "oil_supply": 0.0,
+            "oil_total": -23.5835,
+            "oil_expenditure": 0.0,
+            "oil_balance": -23.5835
+          }
+        }
+      ]
+    },
+    {
+      "id": "milk_biscuit_2025_03",
+      "templateId": "milk_biscuit",
+      "year": 2025,
+      "month": 3,
+      "title": "Milk & Biscuit March 2025",
+      "rows": [
+        {
+          "date": "2025-03-01",
+          "sortOrder": 1,
+          "cells": {
+            "count": 60.0,
+            "milk_supply": 0.0,
+            "milk_opening": 26.25,
+            "malt_supply": 0.0,
+            "malt_opening": 6.295
+          },
+          "sourceValues": {
+            "count": 60.0,
+            "milk_opening": 26.25,
+            "milk_supply": 0.0,
+            "milk_total": 26.25,
+            "milk_expenditure": 1.08,
+            "milk_balance": 0.0,
+            "malt_opening": 6.295,
+            "malt_supply": 0.0,
+            "malt_total": 6.295,
+            "malt_expenditure": 0.0,
+            "malt_balance": 6.295
+          }
+        },
+        {
+          "date": "2025-03-02",
+          "sortOrder": 2,
+          "cells": {
+            "count": 0.0,
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 0.0,
+            "milk_opening": 0.0,
+            "milk_supply": 0.0,
+            "milk_total": 0.0,
+            "milk_expenditure": 0.0,
+            "milk_balance": 0.0,
+            "malt_opening": 6.295,
+            "malt_supply": 0.0,
+            "malt_total": 6.295,
+            "malt_expenditure": 0.0,
+            "malt_balance": 6.295
+          }
+        },
+        {
+          "date": "2025-03-03",
+          "sortOrder": 3,
+          "cells": {
+            "count": 111.0,
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 111.0,
+            "milk_opening": 0.0,
+            "milk_supply": 0.0,
+            "milk_total": 0.0,
+            "milk_expenditure": 1.998,
+            "milk_balance": -1.998,
+            "malt_opening": 6.295,
+            "malt_supply": 0.0,
+            "malt_total": 6.295,
+            "malt_expenditure": 0.555,
+            "malt_balance": 5.74
+          }
+        },
+        {
+          "date": "2025-03-04",
+          "sortOrder": 4,
+          "cells": {
+            "count": 111.0,
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 111.0,
+            "milk_opening": -1.998,
+            "milk_supply": 0.0,
+            "milk_total": -1.998,
+            "milk_expenditure": 1.998,
+            "milk_balance": -3.996,
+            "malt_opening": 5.74,
+            "malt_supply": 0.0,
+            "malt_total": 5.74,
+            "malt_expenditure": 0.555,
+            "malt_balance": 5.1850000000000005
+          }
+        },
+        {
+          "date": "2025-03-05",
+          "sortOrder": 5,
+          "cells": {
+            "count": 106.0,
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 106.0,
+            "milk_opening": -3.996,
+            "milk_supply": 0.0,
+            "milk_total": -3.996,
+            "milk_expenditure": 1.908,
+            "milk_balance": -5.904,
+            "malt_opening": 5.1850000000000005,
+            "malt_supply": 0.0,
+            "malt_total": 5.1850000000000005,
+            "malt_expenditure": 0.53,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-06",
+          "sortOrder": 6,
+          "cells": {
+            "count": 101.0,
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 101.0,
+            "milk_opening": -5.904,
+            "milk_supply": 0.0,
+            "milk_total": -5.904,
+            "milk_expenditure": 1.818,
+            "milk_balance": -7.7219999999999995,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-07",
+          "sortOrder": 7,
+          "cells": {
+            "count": 108.0,
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "count": 108.0,
+            "milk_opening": -7.7219999999999995,
+            "milk_supply": 0.0,
+            "milk_total": -7.7219999999999995,
+            "milk_expenditure": 1.944,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-08",
+          "sortOrder": 8,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-09",
+          "sortOrder": 9,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-10",
+          "sortOrder": 10,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-11",
+          "sortOrder": 11,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-12",
+          "sortOrder": 12,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-13",
+          "sortOrder": 13,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-14",
+          "sortOrder": 14,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-15",
+          "sortOrder": 15,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-16",
+          "sortOrder": 16,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-17",
+          "sortOrder": 17,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-18",
+          "sortOrder": 18,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-19",
+          "sortOrder": 19,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "sortOrder": 20,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-21",
+          "sortOrder": 21,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-22",
+          "sortOrder": 22,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-23",
+          "sortOrder": 23,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-24",
+          "sortOrder": 24,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-25",
+          "sortOrder": 25,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-26",
+          "sortOrder": 26,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-27",
+          "sortOrder": 27,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-28",
+          "sortOrder": 28,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-29",
+          "sortOrder": 29,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-30",
+          "sortOrder": 30,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        },
+        {
+          "date": "2025-03-31",
+          "sortOrder": 31,
+          "cells": {
+            "milk_supply": 0.0,
+            "malt_supply": 0.0
+          },
+          "sourceValues": {
+            "milk_opening": -9.666,
+            "milk_supply": 0.0,
+            "milk_total": -9.666,
+            "milk_expenditure": 0.0,
+            "milk_balance": -9.666,
+            "malt_opening": 4.655,
+            "malt_supply": 0.0,
+            "malt_total": 4.655,
+            "malt_expenditure": 0.0,
+            "malt_balance": 4.655
+          }
+        }
+      ]
+    },
+    {
+      "id": "contingency_2026_09",
+      "templateId": "contingency",
+      "year": 2026,
+      "month": 9,
+      "title": "Contingency September 2026",
+      "rows": [
+        {
+          "date": "2026-09-01",
+          "sortOrder": 1,
+          "cells": {
+            "count_8": 20.0,
+            "count_9": 35.0,
+            "count_10": 50.0,
+            "cont_8_supply": 0.0,
+            "cont_8_opening": 22091.89,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_opening": 24742.34,
+            "sugar_supply": 0.0,
+            "sugar_opening": 9449.04
+          },
+          "sourceValues": {
+            "count_8": 20.0,
+            "count_9": 35.0,
+            "count_10": 50.0,
+            "count_9_10": 85.0,
+            "count_all": 105.0,
+            "cont_8_opening": 22091.89,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 22091.89,
+            "cont_8_expenditure": 71.0,
+            "cont_8_balance": 22020.89,
+            "cont_9_10_opening": 24742.34,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 24742.34,
+            "cont_9_10_expenditure": 301.75,
+            "cont_9_10_balance": 24440.59,
+            "sugar_opening": 9449.04,
+            "sugar_supply": 0.0,
+            "sugar_total": 9449.04,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9449.04
+          }
+        },
+        {
+          "date": "2026-09-02",
+          "sortOrder": 2,
+          "cells": {
+            "count_8": 0.0,
+            "count_9": 0.0,
+            "count_10": 0.0,
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_8": 0.0,
+            "count_9": 0.0,
+            "count_10": 0.0,
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 22020.89,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 22020.89,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 22020.89,
+            "cont_9_10_opening": 24440.59,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 24440.59,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 24440.59,
+            "sugar_opening": 9449.04,
+            "sugar_supply": 0.0,
+            "sugar_total": 9449.04,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9449.04
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "sortOrder": 3,
+          "cells": {
+            "count_8": 22.0,
+            "count_9": 39.0,
+            "count_10": 50.0,
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_8": 22.0,
+            "count_9": 39.0,
+            "count_10": 50.0,
+            "count_9_10": 89.0,
+            "count_all": 111.0,
+            "cont_8_opening": 22020.89,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 22020.89,
+            "cont_8_expenditure": 78.1,
+            "cont_8_balance": 21942.79,
+            "cont_9_10_opening": 24440.59,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 24440.59,
+            "cont_9_10_expenditure": 315.95,
+            "cont_9_10_balance": 24124.64,
+            "sugar_opening": 9449.04,
+            "sugar_supply": 0.0,
+            "sugar_total": 9449.04,
+            "sugar_expenditure": 48.84,
+            "sugar_balance": 9400.2
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "sortOrder": 4,
+          "cells": {
+            "count_8": 23.0,
+            "count_9": 38.0,
+            "count_10": 50.0,
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_8": 23.0,
+            "count_9": 38.0,
+            "count_10": 50.0,
+            "count_9_10": 88.0,
+            "count_all": 111.0,
+            "cont_8_opening": 21942.79,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21942.79,
+            "cont_8_expenditure": 81.64999999999999,
+            "cont_8_balance": 21861.14,
+            "cont_9_10_opening": 24124.64,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 24124.64,
+            "cont_9_10_expenditure": 312.4,
+            "cont_9_10_balance": 23812.239999999998,
+            "sugar_opening": 9400.2,
+            "sugar_supply": 0.0,
+            "sugar_total": 9400.2,
+            "sugar_expenditure": 48.84,
+            "sugar_balance": 9351.36
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "sortOrder": 5,
+          "cells": {
+            "count_8": 23.0,
+            "count_9": 36.0,
+            "count_10": 47.0,
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_8": 23.0,
+            "count_9": 36.0,
+            "count_10": 47.0,
+            "count_9_10": 83.0,
+            "count_all": 106.0,
+            "cont_8_opening": 21861.14,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21861.14,
+            "cont_8_expenditure": 81.64999999999999,
+            "cont_8_balance": 21779.489999999998,
+            "cont_9_10_opening": 23812.239999999998,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 23812.239999999998,
+            "cont_9_10_expenditure": 294.65,
+            "cont_9_10_balance": 23517.589999999997,
+            "sugar_opening": 9351.36,
+            "sugar_supply": 0.0,
+            "sugar_total": 9351.36,
+            "sugar_expenditure": 46.64,
+            "sugar_balance": 9304.720000000001
+          }
+        },
+        {
+          "date": "2026-09-06",
+          "sortOrder": 6,
+          "cells": {
+            "count_8": 23.0,
+            "count_9": 34.0,
+            "count_10": 44.0,
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_8": 23.0,
+            "count_9": 34.0,
+            "count_10": 44.0,
+            "count_9_10": 78.0,
+            "count_all": 101.0,
+            "cont_8_opening": 21779.489999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21779.489999999998,
+            "cont_8_expenditure": 81.64999999999999,
+            "cont_8_balance": 21697.839999999997,
+            "cont_9_10_opening": 23517.589999999997,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 23517.589999999997,
+            "cont_9_10_expenditure": 276.9,
+            "cont_9_10_balance": 23240.689999999995,
+            "sugar_opening": 9304.720000000001,
+            "sugar_supply": 0.0,
+            "sugar_total": 9304.720000000001,
+            "sugar_expenditure": 44.44,
+            "sugar_balance": 9260.28
+          }
+        },
+        {
+          "date": "2026-09-07",
+          "sortOrder": 7,
+          "cells": {
+            "count_8": 22.0,
+            "count_9": 38.0,
+            "count_10": 48.0,
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_8": 22.0,
+            "count_9": 38.0,
+            "count_10": 48.0,
+            "count_9_10": 86.0,
+            "count_all": 108.0,
+            "cont_8_opening": 21697.839999999997,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21697.839999999997,
+            "cont_8_expenditure": 78.1,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 23240.689999999995,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 23240.689999999995,
+            "cont_9_10_expenditure": 305.3,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9260.28,
+            "sugar_supply": 0.0,
+            "sugar_total": 9260.28,
+            "sugar_expenditure": 47.52,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "sortOrder": 8,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-09",
+          "sortOrder": 9,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "sortOrder": 10,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "sortOrder": 11,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "sortOrder": 12,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-13",
+          "sortOrder": 13,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-14",
+          "sortOrder": 14,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "sortOrder": 15,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-16",
+          "sortOrder": 16,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "sortOrder": 17,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "sortOrder": 18,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "sortOrder": 19,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-20",
+          "sortOrder": 20,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "sortOrder": 21,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "sortOrder": 22,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "sortOrder": 23,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "sortOrder": 24,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "sortOrder": 25,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "sortOrder": 26,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-27",
+          "sortOrder": 27,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "sortOrder": 28,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "sortOrder": 29,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-09-30",
+          "sortOrder": 30,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "sortOrder": 1,
+          "cells": {
+            "cont_8_supply": 0.0,
+            "cont_9_10_supply": 0.0,
+            "sugar_supply": 0.0
+          },
+          "sourceValues": {
+            "count_9_10": 0.0,
+            "count_all": 0.0,
+            "cont_8_opening": 21619.739999999998,
+            "cont_8_supply": 0.0,
+            "cont_8_total": 21619.739999999998,
+            "cont_8_expenditure": 0.0,
+            "cont_8_balance": 21619.739999999998,
+            "cont_9_10_opening": 22935.389999999996,
+            "cont_9_10_supply": 0.0,
+            "cont_9_10_total": 22935.389999999996,
+            "cont_9_10_expenditure": 0.0,
+            "cont_9_10_balance": 22935.389999999996,
+            "sugar_opening": 9212.76,
+            "sugar_supply": 0.0,
+            "sugar_total": 9212.76,
+            "sugar_expenditure": 0.0,
+            "sugar_balance": 9212.76
+          }
+        }
+      ]
+    },
+    {
+      "id": "egg_banana_2025_03",
+      "templateId": "egg_banana",
+      "year": 2025,
+      "month": 3,
+      "title": "Egg, Banana & Nut Bar March 2025",
+      "rows": [
+        {
+          "date": "2025-03-01",
+          "sortOrder": 1,
+          "cells": {
+            "egg_8": 5.0,
+            "banana_8": 15.0,
+            "egg_9": 25.0,
+            "banana_9": 10.0,
+            "egg_10": 30.0,
+            "banana_10": 20.0,
+            "cash_supply": 0.0,
+            "cash_opening": 28329.7
+          },
+          "sourceValues": {
+            "egg_8": 5.0,
+            "banana_8": 15.0,
+            "egg_9": 25.0,
+            "banana_9": 10.0,
+            "egg_10": 30.0,
+            "banana_10": 20.0,
+            "total_8": 20.0,
+            "total_9": 35.0,
+            "total_10": 50.0,
+            "egg_total": 60.0,
+            "banana_total": 45.0,
+            "combo_total": 105.0,
+            "egg_cont": 360.0,
+            "banana_cont": 270.0,
+            "cash_opening": 28329.7,
+            "cash_supply": 0.0,
+            "cash_total": 28329.7,
+            "cash_expenditure": 630.0,
+            "cash_balance": 27713.2
+          }
+        },
+        {
+          "date": "2025-03-02",
+          "sortOrder": 2,
+          "cells": {
+            "egg_8": 0.0,
+            "banana_8": 0.0,
+            "egg_9": 0.0,
+            "banana_9": 0.0,
+            "egg_10": 0.0,
+            "banana_10": 0.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 0.0,
+            "banana_8": 0.0,
+            "egg_9": 0.0,
+            "banana_9": 0.0,
+            "egg_10": 0.0,
+            "banana_10": 0.0,
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 27713.2,
+            "cash_supply": 0.0,
+            "cash_total": 27713.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 27713.2
+          }
+        },
+        {
+          "date": "2025-03-03",
+          "sortOrder": 3,
+          "cells": {
+            "egg_8": 5.0,
+            "banana_8": 17.0,
+            "egg_9": 30.0,
+            "banana_9": 9.0,
+            "egg_10": 25.0,
+            "banana_10": 25.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 5.0,
+            "banana_8": 17.0,
+            "egg_9": 30.0,
+            "banana_9": 9.0,
+            "egg_10": 25.0,
+            "banana_10": 25.0,
+            "total_8": 22.0,
+            "total_9": 39.0,
+            "total_10": 50.0,
+            "egg_total": 60.0,
+            "banana_total": 51.0,
+            "combo_total": 111.0,
+            "egg_cont": 360.0,
+            "banana_cont": 306.0,
+            "cash_opening": 27713.2,
+            "cash_supply": 0.0,
+            "cash_total": 27713.2,
+            "cash_expenditure": 666.0,
+            "cash_balance": 27047.2
+          }
+        },
+        {
+          "date": "2025-03-04",
+          "sortOrder": 4,
+          "cells": {
+            "egg_8": 5.0,
+            "banana_8": 18.0,
+            "egg_9": 30.0,
+            "banana_9": 8.0,
+            "egg_10": 25.0,
+            "banana_10": 25.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 5.0,
+            "banana_8": 18.0,
+            "egg_9": 30.0,
+            "banana_9": 8.0,
+            "egg_10": 25.0,
+            "banana_10": 25.0,
+            "total_8": 23.0,
+            "total_9": 38.0,
+            "total_10": 50.0,
+            "egg_total": 60.0,
+            "banana_total": 51.0,
+            "combo_total": 111.0,
+            "egg_cont": 360.0,
+            "banana_cont": 306.0,
+            "cash_opening": 27047.2,
+            "cash_supply": 0.0,
+            "cash_total": 27047.2,
+            "cash_expenditure": 666.0,
+            "cash_balance": 26381.2
+          }
+        },
+        {
+          "date": "2025-03-05",
+          "sortOrder": 5,
+          "cells": {
+            "egg_8": 5.0,
+            "banana_8": 18.0,
+            "egg_9": 30.0,
+            "banana_9": 6.0,
+            "egg_10": 25.0,
+            "banana_10": 22.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 5.0,
+            "banana_8": 18.0,
+            "egg_9": 30.0,
+            "banana_9": 6.0,
+            "egg_10": 25.0,
+            "banana_10": 22.0,
+            "total_8": 23.0,
+            "total_9": 36.0,
+            "total_10": 47.0,
+            "egg_total": 60.0,
+            "banana_total": 46.0,
+            "combo_total": 106.0,
+            "egg_cont": 360.0,
+            "banana_cont": 276.0,
+            "cash_opening": 26381.2,
+            "cash_supply": 0.0,
+            "cash_total": 26381.2,
+            "cash_expenditure": 636.0,
+            "cash_balance": 25745.2
+          }
+        },
+        {
+          "date": "2025-03-06",
+          "sortOrder": 6,
+          "cells": {
+            "egg_8": 5.0,
+            "banana_8": 18.0,
+            "egg_9": 30.0,
+            "banana_9": 4.0,
+            "egg_10": 25.0,
+            "banana_10": 19.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 5.0,
+            "banana_8": 18.0,
+            "egg_9": 30.0,
+            "banana_9": 4.0,
+            "egg_10": 25.0,
+            "banana_10": 19.0,
+            "total_8": 23.0,
+            "total_9": 34.0,
+            "total_10": 44.0,
+            "egg_total": 60.0,
+            "banana_total": 41.0,
+            "combo_total": 101.0,
+            "egg_cont": 360.0,
+            "banana_cont": 246.0,
+            "cash_opening": 25745.2,
+            "cash_supply": 0.0,
+            "cash_total": 25745.2,
+            "cash_expenditure": 606.0,
+            "cash_balance": 25139.2
+          }
+        },
+        {
+          "date": "2025-03-07",
+          "sortOrder": 7,
+          "cells": {
+            "egg_8": 5.0,
+            "banana_8": 17.0,
+            "egg_9": 30.0,
+            "banana_9": 8.0,
+            "egg_10": 25.0,
+            "banana_10": 23.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 5.0,
+            "banana_8": 17.0,
+            "egg_9": 30.0,
+            "banana_9": 8.0,
+            "egg_10": 25.0,
+            "banana_10": 23.0,
+            "total_8": 22.0,
+            "total_9": 38.0,
+            "total_10": 48.0,
+            "egg_total": 60.0,
+            "banana_total": 48.0,
+            "combo_total": 108.0,
+            "egg_cont": 360.0,
+            "banana_cont": 288.0,
+            "cash_opening": 25139.2,
+            "cash_supply": 0.0,
+            "cash_total": 25139.2,
+            "cash_expenditure": 648.0,
+            "cash_balance": 24491.2
+          }
+        },
+        {
+          "date": "2025-03-08",
+          "sortOrder": 8,
+          "cells": {
+            "egg_8": 2.0,
+            "banana_8": 6.0,
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "egg_8": 2.0,
+            "banana_8": 6.0,
+            "total_8": 8.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 2.0,
+            "banana_total": 6.0,
+            "combo_total": 8.0,
+            "egg_cont": 12.0,
+            "banana_cont": 36.0,
+            "cash_opening": 24491.2,
+            "cash_supply": 0.0,
+            "cash_total": 24491.2,
+            "cash_expenditure": 48.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-09",
+          "sortOrder": 9,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-10",
+          "sortOrder": 10,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-11",
+          "sortOrder": 11,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-12",
+          "sortOrder": 12,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-13",
+          "sortOrder": 13,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-14",
+          "sortOrder": 14,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-15",
+          "sortOrder": 15,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-16",
+          "sortOrder": 16,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-17",
+          "sortOrder": 17,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-18",
+          "sortOrder": 18,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-19",
+          "sortOrder": 19,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-20",
+          "sortOrder": 20,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-21",
+          "sortOrder": 21,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-22",
+          "sortOrder": 22,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-23",
+          "sortOrder": 23,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-24",
+          "sortOrder": 24,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-25",
+          "sortOrder": 25,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-26",
+          "sortOrder": 26,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-27",
+          "sortOrder": 27,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-28",
+          "sortOrder": 28,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-29",
+          "sortOrder": 29,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-30",
+          "sortOrder": 30,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        },
+        {
+          "date": "2025-03-31",
+          "sortOrder": 31,
+          "cells": {
+            "cash_supply": 0.0
+          },
+          "sourceValues": {
+            "total_8": 0.0,
+            "total_9": 0.0,
+            "total_10": 0.0,
+            "egg_total": 0.0,
+            "banana_total": 0.0,
+            "combo_total": 0.0,
+            "egg_cont": 0.0,
+            "banana_cont": 0.0,
+            "cash_opening": 24443.2,
+            "cash_supply": 0.0,
+            "cash_total": 24443.2,
+            "cash_expenditure": 0.0,
+            "cash_balance": 24443.2
+          }
+        }
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "item": "oil_rate_9_10",
+      "workbook": 76.5,
+      "app": 6.5,
+      "reason": "Sheet header is Oil (6.500). The app uses the header rate instead of the 76.5 workbook formula."
+    },
+    {
+      "item": "banana_rate",
+      "workbook": 6.0,
+      "app": 5.7,
+      "reason": "Sheet header is banana cont (5.7). The app uses 5.7 instead of the workbook *6 formula and the broken P4 cell."
+    },
+    {
+      "item": "first_day_rice_dal_expenditure",
+      "workbook": 0.0,
+      "app": 1.0,
+      "reason": "The first rice and dal expenditure cells on 8th Rice Bhagya were blank in Excel. The app calculates them from the head count and header rates."
+    }
+  ]
+}
